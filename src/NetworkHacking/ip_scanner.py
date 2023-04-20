@@ -3,12 +3,13 @@ import networkscan
 
 parse = argparse.ArgumentParser()
 parse.add_argument("-n", "--network", help="Network IP", required=True)
-parse.add_argument("-o",  "--output", help="Output file", required=False)
-parse.add_argument("-v",  "--verbose", help="Verbose", required=False, type=bool)
+parse.add_argument("-o", "--output", help="Output file", required=False)
+parse.add_argument("-v", "--verbose", help="Verbose(Aun por implementar)", required=False, type=bool)
+
 args = parse.parse_args()
 
-def NetWorkScan_module(network):
 
+def NetWorkScan_module(network):
     scan = networkscan.Networkscan(network)
     scan.run()
 

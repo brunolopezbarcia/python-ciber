@@ -2,14 +2,15 @@ import requests
 import argparse
 
 parser = argparse.ArgumentParser()
-parser.add_argument("-u", "--url", help="URL a Procesar", required=False)
+parser.add_argument("-u", "--url", help="URL a Procesar", required=True)
+parser.add_argument("-w", "--wordlist", help="Diccionario a usar", required=False, default="combined_directories.txt")
 args = parser.parse_args()
 
 
-def check_url(URL_INICIAL):
+def check_url(URL_INICIAL, wordlist):
     URL_inicial = URL_INICIAL
     i = 1
-    f = open("combined_directories.txt", "r")
+    f = open(wordlist, "r")
     for linea in f:
         URL_ANALIZAR = URL_inicial + linea
         response = requests.get(f"{URL_ANALIZAR}")
@@ -23,4 +24,4 @@ def check_url(URL_INICIAL):
     f.close()
 
 
-check_url(args.url)
+check_url(args.url, args.wordlist)

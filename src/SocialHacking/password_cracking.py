@@ -5,7 +5,7 @@ import sys
 parse = argparse.ArgumentParser()
 parse.add_argument("-p", "--password", help="Pon aqui el hash de la password.", required=False)
 parse.add_argument("-w", "--wordlist", help="Añade aqui el archivo del wordlist", required=True)
-parse.add_argument("-a", "--archivo", help="Añade el fichero de usuario:contraseña", required=False)
+#parse.add_argument("-a", "--archivo", help="Añade el fichero de usuario:contraseña", required=False) TODO Implementar la funcionalidad.
 parse.add_argument("-f", help="Añade el nombre del hash del cifrado(Admitidos: md5, sha1, sha256, sha512, blake2)", required=True)
 args = parse.parse_args()
 

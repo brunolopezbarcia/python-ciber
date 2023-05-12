@@ -38,7 +38,7 @@ def checker(hash, wordlist):
         if hash_to_check == hash_dict:
             return print(f'El hash: {hash.strip()} es la palabra: {linea}')
             break
-    print("No esta en el wordlist, prueba con otro.")
+    print(f"No esta en el wordlist, prueba con otro. -- {hash.strip()}\n")
     word.close()
 
 

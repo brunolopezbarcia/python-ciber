@@ -1,3 +1,4 @@
 networkscan
 argparse
 requests
+flask

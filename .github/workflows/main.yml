@@ -10,7 +10,7 @@ jobs:
     - name: Mirror + trigger CI
       uses: SvanBoxel/gitlab-mirror-and-ci-action@master
       with:
-        args: "https://gitlab.com/brunolopezbarcia/python-ciber"
+        args: "https://gitlab.com/brunolopezbarcia/PythonCiber.git"
       env:
         FOLLOW_TAGS: "false"
         FORCE_PUSH: "false"

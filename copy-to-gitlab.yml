@@ -1,0 +1,21 @@
+name: Copy to GitLab
+
+on:
+  push:
+    branches:
+      - main  # Cambia 'main' al nombre de tu rama principal si es diferente
+
+jobs:
+  copy-to-gitlab:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Push to GitLab
+        run: |
+          git remote add gitlab <URL_DEL_REPOSITORIO_GITLAB>
+          git push gitlab HEAD:main
+        env:
+          GITLAB_TOKEN: ${{ secrets.GITLAB_TOKEN }}

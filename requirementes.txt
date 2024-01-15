@@ -2,3 +2,7 @@ networkscan
 argparse
 requests
 flask
+flask_cors
+Flask-Caching
+resend
+python-dotenv

@@ -8,8 +8,10 @@ parser.add_argument("-u", "--url", help="URL a Procesar", required=False)
 parser.add_argument("-w", "--wordlist", help="Diccionario a usar", required=False, default="combined_directories.txt")
 args = parser.parse_args()
 
-logging.basicConfig(filename='logs/url_checker.log', level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
+
+logs_url = logging
+logs_url.basicConfig(filename='logs/url_scrapper.log', level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %(message)s')
 
 
 def check_url(URL_INICIAL, wordlist, API):
@@ -32,17 +34,17 @@ def check_url(URL_INICIAL, wordlist, API):
                         "Existe": "Si" if status_code == 200 else "No",
                         "Status Code": status_code
                     }
-                    logging.info(url)
+                    logs_url.info(url)
                     urls.append(url)
                     i += 1
-
+            email_sender(urls)
             return jsonify({"urls": urls})
         else:
             warning_message = {
                 "Url": None,
                 "Message": "Se debe de pasar una url a escanear."
             }
-            logging.warning(warning_message)
+            logs_url.warning(warning_message)
             return jsonify(warning_message)
         
     else:
